@@ -13,4 +13,4 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["gunicorn", "catalog.wsgi:application", "--bind", "0.0.0.0:8000", "--timeout", "300", "--workers", "3"]
+CMD python manage.py migrate && gunicorn catalog.wsgi:application --bind 0.0.0.0:8000 --timeout 300 --workers 3
